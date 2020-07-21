@@ -1,7 +1,7 @@
 {
 	"name": "canvas-image-interaction",
 	"version": "1.0.0",
-	"description": "Canvas Image Manipulation & Amazing hover effect",
+	"description": "using canvas to create amazing hover effect",
 	"main": "index.js",
 	"scripts": {
 		"start": "parcel src/index.html",
