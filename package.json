@@ -1,0 +1,35 @@
+{
+	"name": "canvas-image-interaction",
+	"version": "1.0.0",
+	"description": "Canvas Image Manipulation & Amazing hover effect",
+	"main": "index.js",
+	"scripts": {
+		"start": "parcel src/index.html",
+		"clean": "rm -rf dist/*",
+		"build:parcel": "parcel build src/index.html --no-content-hash --no-minify --no-source-maps --public-url ./",
+		"build": "npm run clean && npm run build:parcel"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/devloop01/canvas-image-interaction.git"
+	},
+	"keywords": [
+		"canvas",
+		"hover",
+		"effect"
+	],
+	"author": "Sikriti Dakua",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/devloop01/canvas-image-interaction/issues"
+	},
+	"homepage": "https://github.com/devloop01/canvas-image-interaction#readme",
+	"dependencies": {
+		"css": "^3.0.0",
+		"gsap": "^3.4.1",
+		"parcel-bundler": "^1.12.4"
+	},
+	"devDependencies": {
+		"sass": "^1.26.10"
+	}
+}
