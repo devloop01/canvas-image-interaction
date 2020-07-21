@@ -1,5 +1,11 @@
 # Canvas Image Interaction
 
-### Live [demo](https://codepen.io/dev_loop/full/Bajvged)
+Using canvas to create amzing image hover effect/interaction.
+
+The particles draw the pixels of the image over and over again to create this cool looking effect
+
+### [Live Demo](https://codepen.io/dev_loop/full/Bajvged)
+
+### Screenshot
 
 [![image](https://i.imgur.com/VGfTrnL.png)]()
