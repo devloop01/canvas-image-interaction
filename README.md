@@ -1,6 +1,6 @@
 # Canvas Image Interaction
 
-Using canvas to create amzing image hover effect/interaction.
+Using canvas to create amazing image hover effect/interaction.
 
 The particles draw the pixels of the image over and over again to create this cool looking effect
 
