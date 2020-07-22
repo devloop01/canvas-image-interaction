@@ -1,10 +1,28 @@
 console.clear();
 
+// Import all the neccessary modules
 import gsap from "gsap";
 import { loadImages, splitArray } from "./utils";
 import Canvas from "./canvas";
 
+// import the styles
 import "../css/style.scss";
+
+// ALL THE CARD OPTIONS LISTED BELOW -->
+
+// 1. jumpToRandomPosition: If `true` the particles on every frame will jump to random position. Else the particles will move randomly without jumping. Defaults to `false`
+// 2. growAndShrink: If `true` the particles will grow & shrink, it will grow .8 times larger than the radius. Defaults to `false`
+// 3. fill: If `true` the particles are filled with the current pixel color that they are on, else they will be stroked for that same color. Defaults to `true`
+// 4. bounceFromEdges: If `true` the particles will bounce back when they hit the (specified) edges, or else thay will continue their path from the opposite edges/walls. Defaults to `true`.
+// 5. shape: You can specify what shape of the particles. Currently you can specify any one from the following, i.e. "circle", "square", "hexagon". If not specified then it defaults to "circle"
+// 6. radius: You can specity the radius of the particles, defaults to "5" if not specified.
+// 7. randomRadius: If `true` then the particles will have random radius, else defaults to `false`
+// 8. maxRadius: You can specify the minimum radius of the particles, else defaults to "2"
+// 9. minRadius: You can specify the maximum radius of the particles, else defaults to "5"
+// 10. maxVelocity: You can specify the maximum velocity of the particles, else defaults to "8"
+
+// Okay that's it, that's all the options I could add. Play around and see what fits for you.
+// Also please STAR this project if you think it's interesting, you can even fork it and make/add something new.
 
 const cards = Array.from(document.querySelectorAll(".card"));
 
