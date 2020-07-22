@@ -21,18 +21,21 @@ export const returnPixelColor = (imageData, width, position) => {
 	return `rgb(${pixel.r}, ${pixel.g}, ${pixel.b})`;
 };
 
-export const toDataURL = (url, callback) => {
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function () {
-		var reader = new FileReader();
-		reader.onloadend = function () {
-			callback(reader.result);
+export const toDataURL = (url) => {
+	return new Promise((resolve, reject) => {
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function () {
+			var reader = new FileReader();
+			reader.onloadend = function () {
+				resolve(reader.result);
+			};
+			reader.readAsDataURL(xhr.response);
 		};
-		reader.readAsDataURL(xhr.response);
-	};
-	xhr.open("GET", url);
-	xhr.responseType = "blob";
-	xhr.send();
+		xhr.onerror = reject;
+		xhr.open("GET", url);
+		xhr.responseType = "blob";
+		xhr.send();
+	});
 };
 
 export const returnImageData = (image, dimensions) => {
@@ -45,27 +48,28 @@ export const returnImageData = (image, dimensions) => {
 };
 
 export const loadImage = (imageURL, callback) => {
-	toDataURL(imageURL, (dataURL) => {
+	toDataURL(imageURL).then((data) => {
 		const IMAGE = new Image();
-		IMAGE.src = dataURL;
-		IMAGE.onload = () => callback(IMAGE);
+		IMAGE.src = data;
+		IMAGE.onload = function () {
+			callback(IMAGE);
+		};
 	});
 };
 
 export const loadImages = (imagesURLS, callback) => {
 	const totalImageToLoad = imagesURLS.length;
-	let imagesLoaded = 0;
+	let curentImageIndex = 0;
 	let imagesArray = [];
 
-	const loaded = () => {
-		imagesLoaded++;
-		if (imagesLoaded === totalImageToLoad) callback(imagesArray);
+	const load = () => {
+		loadImage(imagesURLS[curentImageIndex], (image) => {
+			imagesArray.push(image);
+			curentImageIndex++;
+			if (curentImageIndex === totalImageToLoad) callback(imagesArray);
+			else load();
+		});
 	};
 
-	for (let i = 0; i < imagesURLS.length; i++) {
-		loadImage(imagesURLS[i], (image) => {
-			imagesArray.push(image);
-			loaded();
-		});
-	}
+	load();
 };
