@@ -26,7 +26,7 @@
 	"homepage": "https://github.com/devloop01/canvas-image-interaction#readme",
 	"dependencies": {
 		"css": "^3.0.0",
-		"gsap": "^3.4.1",
+		"gsap": "^3.6.0",
 		"parcel-bundler": "^1.12.4"
 	},
 	"devDependencies": {
